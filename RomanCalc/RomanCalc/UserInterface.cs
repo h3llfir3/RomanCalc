@@ -18,5 +18,25 @@ namespace RomanCalc
             System.Console.WriteLine("9) Sumatorios.");
             System.Console.WriteLine("0) Salir.\n");
         }
+
+        public static void PrintAdditionMenu()
+        {
+            System.Console.WriteLine("          MENÚ DE SUMAS");
+            System.Console.WriteLine("----------------------------------");
+            System.Console.WriteLine("");
+        }
+        public static int ReadOption()
+        {
+            string option = System.Console.ReadLine();
+            try
+            {
+                int result = System.Convert.ToInt32(option);
+                return result;
+            }
+            catch (System.Exception e)
+            {
+                return -1;
+            }
+        }
     }
 }
