@@ -16,7 +16,8 @@ namespace RomanCalc
             System.Console.WriteLine("7) Raíces cuadradas.");
             System.Console.WriteLine("8) Fibonacci.");
             System.Console.WriteLine("9) Sumatorios.");
-            System.Console.WriteLine("0) Salir.\n");
+            System.Console.WriteLine("0) Salir.");
+            System.Console.WriteLine("");
         }
 
         public static void PrintAdditionMenu()
@@ -25,18 +26,29 @@ namespace RomanCalc
             System.Console.WriteLine("----------------------------------");
             System.Console.WriteLine("");
         }
-        public static int ReadOption()
+
+        public static void PrintAdditionSubMenu()
         {
-            string option = System.Console.ReadLine();
-            try
-            {
-                int result = System.Convert.ToInt32(option);
-                return result;
-            }
-            catch (System.Exception e)
-            {
-                return -1;
-            }
+            System.Console.WriteLine("0) Volver al menú principal.");
+            System.Console.WriteLine("1) Seguir sumando.");
+            System.Console.WriteLine("2) Reiniciar suma.");
+            System.Console.WriteLine("");
         }
+
+        public static void PrintSubtractionMenu()
+        {
+            System.Console.WriteLine("          MENÚ DE RESTAS");
+            System.Console.WriteLine("-----------------------------------");
+            System.Console.WriteLine("");
+        }
+
+        public static void PrintSubtractionSubMenu()
+        {
+            System.Console.WriteLine("0) Volver al menú principal.");
+            System.Console.WriteLine("1) Seguir restando.");
+            System.Console.WriteLine("2) Reiniciar resta.");
+            System.Console.WriteLine("");
+        }
+        
     }
 }
