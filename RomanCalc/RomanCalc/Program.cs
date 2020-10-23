@@ -2,6 +2,7 @@
 // Este es el controlador principal
 
 using System;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 
 namespace RomanCalc
@@ -11,7 +12,7 @@ namespace RomanCalc
         // Addition function Controller
         // This function manages the addiotion menu loop,
         // and their options
-         public static void LaunchSubAdditionMenu(int accumulated)
+         public static int LaunchSubAdditionMenu(int accumulated)
         {
             while (true)
             {
@@ -20,6 +21,14 @@ namespace RomanCalc
                 accumulated += number;
                 System.Console.WriteLine("El número acumulado es: " + accumulated);
                 UserInterface.PrintAdditionSubMenu();
+                switch (ControllerUtilities.ReadMenuOption(0, 2))
+                {
+                    case 0:
+                        System.Console.Clear();
+                        return 0;
+                    case 2:
+                        return 2;
+                }
             }
         }
         
@@ -35,22 +44,49 @@ namespace RomanCalc
                 System.Console.WriteLine("");
                 UserInterface.PrintAdditionSubMenu();
                 int option = ControllerUtilities.ReadMenuOption(0,2);
+                // Important. How to return from submenu to main menu
                 switch (option)
                 {
                     case 0:
                         return;
                     case 1:
-                        LaunchSubAdditionMenu(result);
+                        int suboption = LaunchSubAdditionMenu(result);
+                        if (suboption == 0)
+                            return;
                         break;
                     case 2:
-                        break;
-                    default:
+                        System.Console.Clear();
                         break;
                 }
             }
         }
        
-
+        public static int LaunchSubSubtractionMenu(int accumulated)
+        {
+            while (true)
+            {
+                System.Console.Clear();
+                System.Console.WriteLine("El resultado anterior es: " + accumulated);
+                UserInterface.PrintSubtractionMenu();
+                int number = ControllerUtilities.ReadIntegerInput("Introduzca el número a restar: ");
+                accumulated -= number;
+                System.Console.WriteLine("El resultado es " + accumulated);
+                UserInterface.PrintSubtractionSubMenu();
+                switch (ControllerUtilities.ReadMenuOption(0,2))
+                {
+                    case 0:
+                        System.Console.Clear();
+                        return 0;
+                    case 1:
+                        System.Console.Clear();
+                        System.Console.WriteLine("El resultado anterior es: " + accumulated);
+                        break;
+                    case 2:
+                        return 2;
+                }
+                
+            }
+        }
         public static void LaunchSubtractionMenu()
         {
             while (true)
@@ -69,6 +105,9 @@ namespace RomanCalc
                         System.Console.Clear();
                         return;
                     case 1:
+                        int suboption = LaunchSubSubtractionMenu(result);
+                        if (suboption == 0)
+                            return;
                         break;
                     case 2:
                         System.Console.Clear();
