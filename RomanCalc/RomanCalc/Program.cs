@@ -67,6 +67,7 @@ namespace RomanCalc
             {
                 System.Console.Clear();
                 System.Console.WriteLine("El resultado anterior es: " + accumulated);
+                System.Console.WriteLine("");
                 UserInterface.PrintSubtractionMenu();
                 int number = ControllerUtilities.ReadIntegerInput("Introduzca el número a restar: ");
                 accumulated -= number;
@@ -84,7 +85,6 @@ namespace RomanCalc
                     case 2:
                         return 2;
                 }
-                
             }
         }
         public static void LaunchSubtractionMenu()
@@ -115,6 +115,28 @@ namespace RomanCalc
                     default:
                         break;
                 }
+            }
+        }
+
+        public static void LaunchMultiplicationMenu()
+        {
+
+        }
+
+        public static void LaunchEquation2Menu()
+        {
+            while (true)
+            {
+                // Imprimiré el mení
+                // pido a
+                // leo a
+                // pido b
+                // leo b
+                // pido c
+                // leo c
+                double a = 1.0, b = 1.0, c = 1.0;
+                Model.Equation2Solution eq = Model.Maths.SolveEquation2(a, b, c);
+                // La solución es... 
             }
         }
         public static void LaunchMainMenu()

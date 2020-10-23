@@ -49,6 +49,19 @@ namespace RomanCalc
             System.Console.WriteLine("2) Reiniciar resta.");
             System.Console.WriteLine("");
         }
+
+        public static void PrintMultiplicationMenu()
+        {
+            System.Console.WriteLine("           MENÚ DE MULTIPLICACIONES");
+            System.Console.WriteLine("-----------------------------------------------");
+            System.Console.WriteLine("");
+        }
         
+        public static void PrintMultiplicationSubMenu()
+        {
+            System.Console.WriteLine("0) Volver al menú principal.");
+            System.Console.WriteLine("1) Seguir multiplicando.");
+            System.Console.WriteLine("2) Reiniciar multiplicación.");
+        }
     }
 }
