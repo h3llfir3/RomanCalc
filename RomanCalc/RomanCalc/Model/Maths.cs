@@ -13,7 +13,7 @@ namespace RomanCalc.Model
             result.solution1 = (-b + sq) / (2.0 * a);
             result.solution2 = (-b - sq) / (2.0 * a);
 
-            return solution;
+            return result;
         }
     }
 }

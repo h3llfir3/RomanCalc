@@ -16,6 +16,9 @@ namespace RomanCalc
         {
             while (true)
             {
+                System.Console.Clear();
+                System.Console.WriteLine("El resultado anterior es: " + accumulated);
+                System.Console.WriteLine("");
                 UserInterface.PrintAdditionMenu();
                 int number = ControllerUtilities.ReadIntegerInput("Introduzca el número a sumar: ");
                 accumulated += number;
@@ -50,6 +53,7 @@ namespace RomanCalc
                     case 0:
                         return;
                     case 1:
+                        System.Console.Clear();
                         int suboption = LaunchSubAdditionMenu(result);
                         if (suboption == 0)
                             return;
@@ -83,6 +87,7 @@ namespace RomanCalc
                         System.Console.WriteLine("El resultado anterior es: " + accumulated);
                         break;
                     case 2:
+                        System.Console.Clear();
                         return 2;
                 }
             }
