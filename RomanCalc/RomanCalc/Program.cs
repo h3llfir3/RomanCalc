@@ -12,7 +12,7 @@ namespace RomanCalc
         // Addition function Controller
         // This function manages the addiotion menu loop,
         // and their options
-         public static int LaunchSubAdditionMenu(int accumulated)
+        public static int LaunchSubAdditionMenu(int accumulated)
         {
             while (true)
             {
@@ -34,7 +34,7 @@ namespace RomanCalc
                 }
             }
         }
-        
+
         public static void LaunchAdditionMenu()
         {
             while (true)
@@ -46,7 +46,7 @@ namespace RomanCalc
                 System.Console.WriteLine("El resultado de la suma es: " + result);
                 System.Console.WriteLine("");
                 UserInterface.PrintAdditionSubMenu();
-                int option = ControllerUtilities.ReadMenuOption(0,2);
+                int option = ControllerUtilities.ReadMenuOption(0, 2);
                 // Important. How to return from submenu to main menu
                 switch (option)
                 {
@@ -64,7 +64,7 @@ namespace RomanCalc
                 }
             }
         }
-       
+
         public static int LaunchSubSubtractionMenu(int accumulated)
         {
             while (true)
@@ -76,8 +76,9 @@ namespace RomanCalc
                 int number = ControllerUtilities.ReadIntegerInput("Introduzca el número a restar: ");
                 accumulated -= number;
                 System.Console.WriteLine("El resultado es " + accumulated);
+                System.Console.WriteLine("");
                 UserInterface.PrintSubtractionSubMenu();
-                switch (ControllerUtilities.ReadMenuOption(0,2))
+                switch (ControllerUtilities.ReadMenuOption(0, 2))
                 {
                     case 0:
                         System.Console.Clear();
@@ -103,7 +104,7 @@ namespace RomanCalc
                 System.Console.WriteLine("El resultado de la resta es: " + result);
                 System.Console.WriteLine("");
                 UserInterface.PrintSubtractionSubMenu();
-                int option = ControllerUtilities.ReadMenuOption(0,2);
+                int option = ControllerUtilities.ReadMenuOption(0, 2);
                 switch (option)
                 {
                     case 0:
@@ -123,15 +124,129 @@ namespace RomanCalc
             }
         }
 
-        public static void LaunchMultiplicationMenu()
-        {
-
-        }
-
-        public static void LaunchEquation2Menu()
+        public static int LaunchSubMultiplicationMenu(int accumulated)
         {
             while (true)
             {
+                System.Console.Clear();
+                System.Console.WriteLine("El número acumulado es: " + accumulated);
+                System.Console.WriteLine("");
+                UserInterface.PrintMultiplicationMenu();
+                int number = ControllerUtilities.ReadIntegerInput("Introduzca el número a multiplicar: ");
+                accumulated *= number;
+                System.Console.WriteLine("El resultado es: " + accumulated);
+                System.Console.WriteLine("");
+                UserInterface.PrintMultiplicationSubMenu();
+                switch (ControllerUtilities.ReadMenuOption(0,2))
+                {
+                    case 0:
+                        System.Console.Clear();
+                        return 0;
+                    case 1:
+                        System.Console.Clear();
+                        System.Console.WriteLine("El resultado anterior es: " + accumulated);
+                        break;
+                    case 2:
+                        System.Console.Clear();
+                        return 2;
+                }
+            }
+        }
+        public static void LaunchMultiplicationMenu()
+        {
+            while (true)
+            {
+                UserInterface.PrintMultiplicationMenu();
+                int number1 = ControllerUtilities.ReadIntegerInput("Introduzca el primer número: ");
+                int number2 = ControllerUtilities.ReadIntegerInput("Introduzca el segundo número: ");
+                int result = number1 * number2;
+                System.Console.WriteLine("El resultado de la multiplicación es:" + result);
+                System.Console.WriteLine("");
+                UserInterface.PrintMultiplicationSubMenu();
+                int option = ControllerUtilities.ReadMenuOption(0, 2);
+                switch (option)
+                {
+                    case 0:
+                        System.Console.Clear();
+                        return;
+                    case 1:
+                        int suboption = LaunchSubSubtractionMenu(result);
+                        if (suboption == 0)
+                            return;
+                        break;
+                    case 2:
+                        System.Console.Clear();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        public static int LaunchSubDivisionMenu(int accumulated)
+        {
+            while (true)
+            {
+                System.Console.Clear();
+                System.Console.WriteLine("El número acumulado es: " + accumulated);
+                System.Console.WriteLine("");
+                UserInterface.PrintDivisionMenu();
+                int number = ControllerUtilities.ReadIntegerInput("Introduzca el número a dividir: ");
+                accumulated /= number;
+                System.Console.WriteLine("El resultado es: " + accumulated);
+                System.Console.WriteLine("");
+                UserInterface.PrintDivisionSubMenu();
+                switch (ControllerUtilities.ReadMenuOption(0, 2))
+                {
+                    case 0:
+                        System.Console.Clear();
+                        return 0;
+                    case 1:
+                        System.Console.Clear();
+                        System.Console.WriteLine("El resultado anterior es: " + accumulated);
+                        break;
+                    case 2:
+                        System.Console.Clear();
+                        return 2;
+                }
+            }
+        }
+
+        public static void LaunchDivisionMenu()
+        {
+            while (true)
+            {
+                UserInterface.PrintDivisionMenu();
+                int number1 = ControllerUtilities.ReadIntegerInput("Introduzca el primer número: ");
+                int number2 = ControllerUtilities.ReadIntegerInput("Introduzca el segundo número: ");
+                int result = number1 / number2;
+                System.Console.WriteLine("El resultado de la división es: " + result);
+                System.Console.WriteLine("");
+                UserInterface.PrintDivisionSubMenu();
+                int option = ControllerUtilities.ReadMenuOption(0,2);
+                switch (option)
+                {
+                    case 0:
+                        System.Console.Clear();
+                        return;
+                    case 1:
+                        int suboption = LaunchSubDivisionMenu(result);
+                        if (suboption == 0)
+                            return;
+                        break;
+                    case 2:
+                        System.Console.Clear();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+       // public static void LaunchEquation2Menu()
+       // {
+        //    while (true)
+         //   {
                 // Imprimiré el mení
                 // pido a
                 // leo a
@@ -139,11 +254,11 @@ namespace RomanCalc
                 // leo b
                 // pido c
                 // leo c
-                double a = 1.0, b = 1.0, c = 1.0;
-                Model.Equation2Solution eq = Model.Maths.SolveEquation2(a, b, c);
+           //     double a = 1.0, b = 1.0, c = 1.0;
+             //   Model.Equation2Solution eq = Model.Maths.SolveEquation2(a, b, c);
                 // La solución es... 
-            }
-        }
+           // }
+        //}
         public static void LaunchMainMenu()
         {
             while (true)
@@ -162,8 +277,10 @@ namespace RomanCalc
                     LaunchAdditionMenu();
                 else if (option == 2)
                     LaunchSubtractionMenu();
+                else if (option == 3)
+                    LaunchMultiplicationMenu();
             }
-}
+        }
         static void Main(string[] args)
         {
             LaunchMainMenu();

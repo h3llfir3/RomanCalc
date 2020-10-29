@@ -56,8 +56,22 @@ namespace RomanCalc
             System.Console.WriteLine("-----------------------------------------------");
             System.Console.WriteLine("");
         }
-        
+
         public static void PrintMultiplicationSubMenu()
+        {
+            System.Console.WriteLine("0) Volver al menú principal.");
+            System.Console.WriteLine("1) Seguir multiplicando.");
+            System.Console.WriteLine("2) Reiniciar multiplicación.");
+        }
+
+        public static void PrintDivisionMenu()
+        {
+            System.Console.WriteLine("           MENÚ DE DIVISIONES");
+            System.Console.WriteLine("-----------------------------------------------");
+            System.Console.WriteLine("");
+        }
+
+        public static void PrintDivisionSubMenu()
         {
             System.Console.WriteLine("0) Volver al menú principal.");
             System.Console.WriteLine("1) Seguir multiplicando.");
